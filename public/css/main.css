@@ -21,16 +21,19 @@ main > .container > .section {
     flex: 1;
 }
 
+/* nav-container style */
 .nav-container{
     max-width: none;
     width: 85%;
 }
 
+/* main-container style */
 .main-container{
     max-width: none;
     width: 100%;
 }
 
+/* form-section style */
 .form-section{
     width: 100%;
     min-height: 89.5vh;
@@ -38,6 +41,7 @@ main > .container > .section {
     flex-flow: column nowrap;
 }
 
+/* main-row table style */
 .main-row{
     width: 100%;
     margin-bottom: 0;
