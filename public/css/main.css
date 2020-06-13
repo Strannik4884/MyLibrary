@@ -31,6 +31,13 @@ main > .container > .section {
     width: 100%;
 }
 
+.form-section{
+    width: 100%;
+    min-height: 89.5vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .main-row{
     width: 100%;
     margin-bottom: 0;
