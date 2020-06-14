@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -24,7 +23,7 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new Email([
-                        'message' => 'Некорректный Email!'
+                        'message' => 'Некорректный Email.'
                     ]),
                     new Length([
                         'max' => 255
@@ -42,7 +41,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Пароль должен быть не менее {{ limit }} символов!',
+                        'minMessage' => 'Пароль должен быть не менее {{ limit }} символов.',
                         'max' => 255
                     ]),
                     new Regex([
@@ -62,16 +61,11 @@ class RegistrationFormType extends AbstractType
                         'class' => 'validate'
                     ]
                 ],
-                'invalid_message' => 'Пароли не совпадают!'
+                'invalid_message' => 'Пароли не совпадают.'
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'required' => true,
                 'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Вы должны согласиться на обработку персональных данных!'
-                    ]),
-                ],
                 'attr' => [
                     'class' => 'filled-in'
                 ]
