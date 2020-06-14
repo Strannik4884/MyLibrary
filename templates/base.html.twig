@@ -37,7 +37,7 @@
                 {% endif %}
             </ul>
             <!-- Mobile hamburger menu icon -->
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger" style="min-width: 56px"><i class="material-icons">menu</i></a>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger" style="min-width: 56px"><img width="52" height="52" style="margin-top: 8px" src="{{ asset('images/favicon.png') }}"/></a>
         </div>
     </div>
 </nav>
@@ -49,6 +49,7 @@
         <li><a href="{{ path('app_login') }}">Вход</a></li>
     {% endif %}
     {% if app.user %}
+        <li><a>{{ app.user.username }}</a></li>
         <li><a href="{{ path('app_logout') }}">Выход</a></li>
     {% endif %}
 </ul>
