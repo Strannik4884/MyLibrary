@@ -1,4 +1,5 @@
 parameters:
+    uploads_path: '/uploads/'
 
 services:
     _defaults:
