@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BookRepository::class)
+ * @Vich\Uploadable
  */
 class Book
 {
@@ -30,13 +33,56 @@ class Book
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_read;
+    private $dateRead;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="books")
      * @ORM\JoinColumn(nullable=false)
      */
     private $createdBy;
+
+    /**
+     * @ORM\Column(type="string", length=512)
+     */
+    private $bookPhotoName;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes = {
+     *         "image/jpeg",
+     *         "image/png",
+     *     }
+     * )
+     * @Vich\UploadableField(mapping="products_thumbnails", fileNameProperty="bookPhotoName")
+     */
+    private $bookPhotoFile;
+
+    /**
+     * @ORM\Column(type="string", length=512)
+     */
+    private $bookFileName;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes = {
+     *         "application/pdf",
+     *         "application/msword",
+     *         "text/plain",
+     *         "text/markdown",
+     *         "application/vnd.oasis.opendocument.text",
+     *         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+     *     }
+     * )
+     * @Vich\UploadableField(mapping="products_thumbnails", fileNameProperty="bookFileName")
+     */
+    private $bookFileFile;
+
+    public function __construct()
+    {
+        $this->dateRead = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -69,12 +115,12 @@ class Book
 
     public function getDateRead(): ?\DateTimeInterface
     {
-        return $this->date_read;
+        return $this->dateRead;
     }
 
-    public function setDateRead(\DateTimeInterface $date_read): self
+    public function setDateRead(\DateTimeInterface $dateRead): self
     {
-        $this->date_read = $date_read;
+        $this->dateRead = $dateRead;
 
         return $this;
     }
@@ -90,4 +136,53 @@ class Book
 
         return $this;
     }
+
+    public function getBookPhotoName(): ?string
+    {
+        return $this->bookPhotoName;
+    }
+
+    public function setBookPhotoName(?string $photoName): self
+    {
+        $this->bookPhotoName = $photoName;
+
+        return $this;
+    }
+
+    public function getBookPhotoFile()
+    {
+        return $this->bookPhotoFile;
+    }
+
+    public function setBookPhotoFile($photoFile): void
+    {
+        $this->bookPhotoFile = $photoFile;
+    }
+
+    public function getBookFileName(): ?string
+    {
+        return $this->bookFileName;
+    }
+
+    public function setBookFileName(?string $fileName): self
+    {
+        $this->bookFileName = $fileName;
+
+        return $this;
+    }
+
+    public function getBookFileFile()
+    {
+        return $this->bookFileFile;
+    }
+
+    public function setBookFileFile($bookFile): void
+    {
+        $this->bookFileFile = $bookFile;
+    }
+
+//    public function getThumbnailFileFullPath(): string
+//    {
+//        return '/uploads/' . $this->getThumbnailName();
+//    }
 }

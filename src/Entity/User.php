@@ -40,7 +40,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity=Book::class, mappedBy="createdBy")
+     * @ORM\OneToMany(targetEntity=Book::class, mappedBy="createdBy", cascade={"remove"})
      */
     private $books;
 
