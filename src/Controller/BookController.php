@@ -6,6 +6,8 @@ use App\Entity\Book;
 use App\Form\BookEditType;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use DateTime;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,6 +73,21 @@ class BookController extends AbstractController
             'book' => $book,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}/read", name="book_read", methods={"GET"})
+     * @param Book $book
+     * @return Response
+     * @throws Exception
+     */
+    public function read(Book $book): Response
+    {
+        $book->setDateRead(new DateTime());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($book);
+        $entityManager->flush();
+        return $this->redirect('/uploads/books/' . $book->getBookFileName());
     }
 
     /**
