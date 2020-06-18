@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <title>{% block title %}Моя библиотека{% endblock %}</title>
-    {% block stylesheets %}
-        <!-- Fonts -->
-        <link rel="stylesheet" href="{{ asset('fonts/Mazzard_M_Light/MazzardSoftM-Light.css') }}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <!-- CSS -->
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/materialert.css') }}" media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/main.css') }}"/>
-    {% endblock %}
+    <!-- Fonts -->
+    <link rel="stylesheet" href="{{ asset('fonts/Mazzard_M_Light/MazzardSoftM-Light.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialert.css') }}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+    {% block stylesheets %}{% endblock %}
 </head>
 <body>
 <!-- Main menu -->
