@@ -186,9 +186,4 @@ class Book
     {
         $this->bookFileFile = $bookFile;
     }
-
-//    public function getThumbnailFileFullPath(): string
-//    {
-//        return '/uploads/' . $this->getThumbnailName();
-//    }
 }

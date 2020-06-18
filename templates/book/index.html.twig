@@ -1,43 +1,33 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Book index{% endblock %}
-
-{% block body %}
-    <h1>Book index</h1>
-
-    <table class="table">
-        <thead>
+<div class="row">
+    <div class="col s12">
+        <h3>Список книг</h3>
+        <a class="btn waves-effect waves-light" href="{{ path('book_new') }}">Добавить книгу</a>
+        <table class="table">
+            <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Author</th>
-                <th>DateRead</th>
-                <th>BookPhotoName</th>
-                <th>BookFileName</th>
-                <th>actions</th>
+                <th></th>
+                <th>Название книги</th>
+                <th>Автор</th>
+                <th>Дата прочтения</th>
+                <th>Файл книги</th>
+                <th></th>
             </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td>{{ book.id }}</td>
-                <td>{{ book.name }}</td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.dateRead ? book.dateRead|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ book.bookPhotoName }}</td>
-                <td>{{ book.bookFileName }}</td>
-                <td>
-                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('book_new') }}">Create new</a>
-{% endblock %}
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <td style="width: 250px"><img style="max-width: 240px; max-height: 350px" class="responsive-img" src="/uploads/photos/{{ book.bookPhotoName }}"/></td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.dateRead ? book.dateRead|date('Y-m-d H:i:s') : '' }}</td>
+                    <td><a href="/uploads/books/{{ book.bookFileName }}"/>Читать книгу</td>
+                    <td class="center-align">
+                        <a class="btn waves-effect waves-light" href="{{ path('book_edit', {'id': book.id}) }}">Редактировать</a>
+                        {{ include('book/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
