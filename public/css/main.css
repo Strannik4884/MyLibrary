@@ -51,7 +51,7 @@ main > .container > .section {
 .right-box{
     width: 100%;
     min-height: 89.5vh;
-    height: 1820px;
+    height: 1850px;
     background: url("../images/right_box_background.jpg");
     background-size: cover;
 }
