@@ -25,4 +25,6 @@ security:
                 target: app_login
 
     access_control:
-         - { path: ^/book/, roles: ROLE_USER }
+         - { path: ^/book/new, roles: ROLE_USER }
+         - { path: ^/book/[0-9]+/edit$, role: ROLE_USER }
+         - { path: ^/book/[0-9]+/delete, role: ROLE_USER }

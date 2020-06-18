@@ -91,7 +91,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="book_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="book_delete", methods={"DELETE"})
      * @param Request $request
      * @param Book $book
      * @param Security $security
