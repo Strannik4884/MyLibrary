@@ -66,7 +66,6 @@ class Book
 
     /**
      * @Assert\File(
-     *     maxSize = "5M",
      *     mimeTypes = {
      *         "application/pdf",
      *         "application/msword",
@@ -76,6 +75,7 @@ class Book
      *         "application/vnd.oasis.opendocument.text",
      *         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
      *     },
+     *     maxSize = "5M",
      *     mimeTypesMessage = "Некорректный файл книги!"
      * )
      * @Vich\UploadableField(mapping="books_files", fileNameProperty="bookFileName")
