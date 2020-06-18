@@ -6,6 +6,9 @@ vich_uploader:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%/photos/'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
         books_files:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%/books/'

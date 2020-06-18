@@ -23,15 +23,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    {{ form_widget(form.bookPhotoName) }}
-                    {{ form_label(form.bookPhotoName) }}
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>Фотография</span>
+                        {{ form_widget(form.bookPhotoFile) }}
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    {{ form_widget(form.bookFileName) }}
-                    {{ form_label(form.bookFileName) }}
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>Книга</span>
+                        {{ form_widget(form.bookFileFile) }}
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
                 </div>
             </div>
             <div class="row">

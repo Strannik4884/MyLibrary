@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class BookType extends AbstractType
 {
@@ -35,8 +37,8 @@ class BookType extends AbstractType
                     'class' => 'validate'
                 ]
             ])
-            ->add('bookPhotoName')
-            ->add('bookFileName')
+            ->add('bookPhotoFile', VichImageType::class)
+            ->add('bookFileFile', VichFileType::class)
         ;
     }
 

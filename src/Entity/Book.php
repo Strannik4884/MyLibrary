@@ -52,7 +52,8 @@ class Book
      *     mimeTypes = {
      *         "image/jpeg",
      *         "image/png",
-     *     }
+     *     },
+     *     mimeTypesMessage = "Некорректный файл фотографии!"
      * )
      * @Vich\UploadableField(mapping="books_photos", fileNameProperty="bookPhotoName")
      */
@@ -69,11 +70,13 @@ class Book
      *     mimeTypes = {
      *         "application/pdf",
      *         "application/msword",
+     *         "text/xml",
      *         "text/plain",
      *         "text/markdown",
      *         "application/vnd.oasis.opendocument.text",
      *         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-     *     }
+     *     },
+     *     mimeTypesMessage = "Некорректный файл книги!"
      * )
      * @Vich\UploadableField(mapping="books_files", fileNameProperty="bookFileName")
      */
