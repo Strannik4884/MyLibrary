@@ -97,7 +97,7 @@ class Book
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName($name): self
     {
         $this->name = $name;
 
@@ -109,7 +109,7 @@ class Book
         return $this->author;
     }
 
-    public function setAuthor(string $author): self
+    public function setAuthor($author): self
     {
         $this->author = $author;
 

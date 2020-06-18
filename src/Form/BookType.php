@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class BookType extends AbstractType
@@ -18,6 +19,9 @@ class BookType extends AbstractType
                 'constraints' => [
                     new Length([
                         'max' => 255
+                    ]),
+                    new NotBlank([
+                        'message' => 'Введите название книги!'
                     ])
                 ],
                 'label' => 'Название',
@@ -29,6 +33,9 @@ class BookType extends AbstractType
                 'constraints' => [
                     new Length([
                         'max' => 255
+                    ]),
+                    new NotBlank([
+                        'message' => 'Введите автора книги!'
                     ])
                 ],
                 'label' => 'Автор',

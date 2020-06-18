@@ -19,10 +19,10 @@
             {% for book in pagination %}
                 <tr>
                     <td style="width: 250px"><img style="max-width: 240px; max-height: 350px" class="responsive-img" src="/uploads/photos/{{ book.bookPhotoName }}"/></td>
-                    <td>{{ book.name }}</td>
-                    <td>{{ book.author }}</td>
-                    <td>{{ book.dateRead ? book.dateRead|date('d-m-Y H:i:s') : '' }}</td>
-                    <td><a href="/book/{{ book.id }}/read"/>Читать книгу</td>
+                    <td class="book_text">{{ book.name }}</td>
+                    <td class="book_text">{{ book.author }}</td>
+                    <td class="book_text">{{ book.dateRead ? book.dateRead|date('d-m-Y H:i:s') : '' }}</td>
+                    <td class="book_text"><a href="/book/{{ book.id }}/read"/>Читать книгу</td>
                     {% if app.user %}
                     {% if app.user is same as (book.createdBy)%}
                         <td class="center-align">

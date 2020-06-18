@@ -68,6 +68,11 @@ main > .container > .section {
     font-size: 20px;
 }
 
+/* books list font-size */
+.book_text{
+    font-size: 20px;
+}
+
 /* footer container style */
 .footer-copyright{
     min-height: 40px;
