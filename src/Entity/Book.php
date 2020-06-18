@@ -48,12 +48,12 @@ class Book
 
     /**
      * @Assert\File(
-     *     maxSize = "5M",
      *     mimeTypes = {
      *         "image/jpeg",
      *         "image/png",
      *     },
      *     mimeTypesMessage = "Некорректный файл фотографии!"
+     *     maxSize = "5M",
      * )
      * @Vich\UploadableField(mapping="books_photos", fileNameProperty="bookPhotoName")
      */
