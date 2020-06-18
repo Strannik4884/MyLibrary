@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col s12">
         <h3>Список книг</h3>
-        <a class="btn waves-effect waves-light" href="{{ path('book_new') }}">Добавить книгу</a>
+        {% if app.user %}
+            <a class="btn waves-effect waves-light" href="{{ path('book_new') }}">Добавить книгу</a>
+        {% endif %}
         <table class="table">
             <thead>
             <tr>
@@ -21,10 +23,12 @@
                     <td>{{ book.author }}</td>
                     <td>{{ book.dateRead ? book.dateRead|date('Y-m-d H:i:s') : '' }}</td>
                     <td><a href="/uploads/books/{{ book.bookFileName }}"/>Читать книгу</td>
-                    <td class="center-align">
-                        <a class="btn waves-effect waves-light" href="{{ path('book_edit', {'id': book.id}) }}">Редактировать</a>
-                        {{ include('book/_delete_form.html.twig') }}
-                    </td>
+                    {% if app.user %}
+                        <td class="center-align">
+                            <a class="btn waves-effect waves-light" href="{{ path('book_edit', {'id': book.id}) }}">Редактировать</a>
+                            {{ include('book/_delete_form.html.twig') }}
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
