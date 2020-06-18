@@ -52,7 +52,7 @@ class Book
      *         "image/jpeg",
      *         "image/png",
      *     },
-     *     mimeTypesMessage = "Некорректный файл фотографии!"
+     *     mimeTypesMessage = "Некорректный файл фотографии!",
      *     maxSize = "5M",
      * )
      * @Vich\UploadableField(mapping="books_photos", fileNameProperty="bookPhotoName")
