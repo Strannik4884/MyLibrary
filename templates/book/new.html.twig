@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Book{% endblock %}
+{% block title %}Добавление книги{% endblock %}
 
-{% block body %}
-    <h1>Create new Book</h1>
-
-    {{ include('book/_form.html.twig') }}
-
-    <a href="{{ path('book_index') }}">back to list</a>
+{% block content %}
+    <div class="valign-wrapper">
+        <div class="container valign" style="max-width: 500px;">
+            <h5 style="padding-left: 10px; margin-top: 50px">Добавление книги</h5>
+            {{ include('book/_form.html.twig') }}
+            <a style="padding-left: 10px" href="{{ path('book_index') }}">Назад</a>
+        </div>
+    </div>
 {% endblock %}

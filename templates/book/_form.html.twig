@@ -1,4 +1,42 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr':{'class':'col s12', 'accept-charset':'utf-8'}}) }}
+    {% set formErrors = form.vars.errors.form.getErrors(true) %}
+            {% if formErrors|length %}
+                <div class="alert alert-danger">
+                    {% for error in formErrors %}
+                        <div class="materialert error">
+                            <div class="material-icons">error_outline</div>
+                            {{ error.message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form_widget(form.name) }}
+                    {{ form_label(form.name) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form_widget(form.author) }}
+                    {{ form_label(form.author) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form_widget(form.bookPhotoName) }}
+                    {{ form_label(form.bookPhotoName) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form_widget(form.bookFileName) }}
+                    {{ form_label(form.bookFileName) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" style="float: right;" type="submit">Сохранить<i class="material-icons right">send</i></button>
+                </div>
+            </div>
 {{ form_end(form) }}
