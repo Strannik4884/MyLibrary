@@ -160,6 +160,9 @@ class Book
     public function setBookPhotoFile($photoFile): void
     {
         $this->bookPhotoFile = $photoFile;
+        if ($photoFile) {
+            $this->bookPhotoName = $photoFile->getFileName();
+        }
     }
 
     public function getBookFileName(): ?string

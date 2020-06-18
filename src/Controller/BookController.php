@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Form\BookEditType;
 use App\Form\BookType;
 use App\Repository\BookRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -68,7 +69,7 @@ class BookController extends AbstractController
      */
     public function edit(Request $request, Book $book): Response
     {
-        $form = $this->createForm(BookType::class, $book);
+        $form = $this->createForm(BookEditType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
