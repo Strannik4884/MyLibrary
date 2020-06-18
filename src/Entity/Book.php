@@ -54,7 +54,7 @@ class Book
      *         "image/png",
      *     }
      * )
-     * @Vich\UploadableField(mapping="products_thumbnails", fileNameProperty="bookPhotoName")
+     * @Vich\UploadableField(mapping="books_photos", fileNameProperty="bookPhotoName")
      */
     private $bookPhotoFile;
 
@@ -75,7 +75,7 @@ class Book
      *         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
      *     }
      * )
-     * @Vich\UploadableField(mapping="products_thumbnails", fileNameProperty="bookFileName")
+     * @Vich\UploadableField(mapping="books_files", fileNameProperty="bookFileName")
      */
     private $bookFileFile;
 
