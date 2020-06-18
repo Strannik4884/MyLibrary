@@ -48,10 +48,16 @@ class BookController extends AbstractController
      * @Route("/{id}/edit", name="book_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Book $book
+     * @param Security $security
      * @return Response
      */
-    public function edit(Request $request, Book $book): Response
+    public function edit(Request $request, Book $book, Security $security): Response
     {
+        // check current user
+        if($book->getCreatedBy() !== $security->getUser()){
+            return $this->redirect($this->generateUrl('home'));
+        }
+
         $form = $this->createForm(BookEditType::class, $book);
         $form->handleRequest($request);
 
@@ -71,10 +77,16 @@ class BookController extends AbstractController
      * @Route("/{id}", name="book_delete", methods={"DELETE"})
      * @param Request $request
      * @param Book $book
+     * @param Security $security
      * @return Response
      */
-    public function delete(Request $request, Book $book): Response
+    public function delete(Request $request, Book $book, Security $security): Response
     {
+        // check current user
+        if($book->getCreatedBy() !== $security->getUser()){
+            return $this->redirect($this->generateUrl('home'));
+        }
+
         if ($this->isCsrfTokenValid('delete'.$book->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($book);

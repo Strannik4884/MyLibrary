@@ -7,7 +7,7 @@
         <div class="container valign" style="max-width: 500px;">
             <h5 style="padding-left: 10px; margin-top: 50px">Добавление книги</h5>
             {{ include('book/_form.html.twig') }}
-            <a style="padding-left: 10px; font-size: 18px" href="{{ path('home') }}">Назад</a>
+            <a style="padding-left: 10px; font-size: 18px" href="{{ app.request.headers.get('referer') }}">Назад</a>
         </div>
     </div>
 {% endblock %}
